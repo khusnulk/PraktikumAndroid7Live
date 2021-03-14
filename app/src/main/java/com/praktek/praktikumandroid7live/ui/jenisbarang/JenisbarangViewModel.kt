@@ -5,11 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.praktek.praktikumandroid7live.model.Jenisbarang
+import com.praktek.praktikumandroid7live.model.JenisbarangData
+import com.praktek.praktikumandroid7live.model.JenisbarangResponse
 import com.praktek.praktikumandroid7live.network.Api
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class JenisbarangViewModel : ViewModel() {
     private val _response = MutableLiveData<Jenisbarang>()
+    val createResponse = MutableLiveData<Response<JenisbarangResponse>>()
 
     val response: LiveData<Jenisbarang>
         get() = _response
@@ -28,4 +32,13 @@ class JenisbarangViewModel : ViewModel() {
             }
         }
     }
+
+    fun create(jenisbarangData: JenisbarangData) {
+        viewModelScope.launch {
+            val response = Api.retrofitService.create(jenisbarangData)
+            createResponse.value = response
+        }
+    }
+
+
 }
