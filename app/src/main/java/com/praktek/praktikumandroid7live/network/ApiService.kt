@@ -6,6 +6,7 @@ import com.praktek.praktikumandroid7live.model.JenisbarangResponse
 import com.praktek.praktikumandroid7live.model.User
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -37,6 +38,8 @@ interface ApiService {
     @POST("jenisbarang/create.php")
     suspend fun create(@Body jenisbarangData: JenisbarangData): Response<JenisbarangResponse>
 
+   @POST("jenisbarang/delete.php")
+    fun delete(@Body jenisbarangData: JenisbarangData): Call<JenisbarangResponse>
 }
 
 object Api {

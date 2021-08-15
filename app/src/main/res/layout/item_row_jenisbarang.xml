@@ -3,16 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvNamajenisbarang"
-        android:layout_width="match_parent"
+        android:id="@+id/tvNamaJenisbarang"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_marginBottom="4dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        tools:text="Name" />
+        tools:text="Name"/>
+
+
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:backgroundTint="@android:color/holo_green_light"
+        />
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:backgroundTint="@android:color/holo_red_light"
+        />
 
 </LinearLayout>
